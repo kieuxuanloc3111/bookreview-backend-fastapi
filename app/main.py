@@ -1,11 +1,11 @@
 from fastapi import FastAPI
-from database import engine, Base
-from routes import author
-from models.author import Author
-from routes import book
-from models.book import Book
-from routes import review
-from models.review import Review
+from app.database import engine, Base
+from app.routes import author
+from app.models.author import Author
+from app.routes import book
+from app.models.book import Book
+from app.routes import review
+from app.models.review import Review
 from fastapi.middleware.cors import CORSMiddleware
 
 

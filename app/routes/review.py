@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from database import SessionLocal
-from models.review import Review
-from schemas.review import ReviewCreate, ReviewResponse
-from models.book import Book
-from models.author import Author
+from app.database import SessionLocal
+from app.models.review import Review
+from app.schemas.review import ReviewCreate, ReviewResponse
+from app.models.book import Book
+from app.models.author import Author
 
 router = APIRouter()
 def get_db():

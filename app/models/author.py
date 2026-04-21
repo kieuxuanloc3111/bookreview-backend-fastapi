@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from database import Base
+from app.database import Base
 class Author(Base):
     __tablename__= "authors"
     id = Column(Integer , primary_key=True, index=True)
