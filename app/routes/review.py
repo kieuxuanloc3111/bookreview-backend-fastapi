@@ -41,3 +41,22 @@ def get_reviews(db : Session = Depends(get_db)):
         }
         for r,b,a in data
     ]
+@router.delete("/")
+def delete_all_reviews(db: Session = Depends(get_db)):
+    count = db.query(Review).count()
+
+    db.query(Review).delete()
+    db.commit()
+
+    return {"message": f"Deleted {count} reviews"}
+@router.delete("/{review_id}")
+def delete_review(review_id: int, db: Session = Depends(get_db)):
+    review = db.query(Review).filter(Review.id == review_id).first()
+
+    if not review:
+        raise HTTPException(status_code=404, detail="Review not found")
+
+    db.delete(review)
+    db.commit()
+
+    return {"message": "Review deleted"}
